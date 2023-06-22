@@ -1,8 +1,12 @@
-export type TodoItem = {
-    id: string;
+import { Entity } from "./Entity";
+
+export class TodoItem extends Entity {
     title: string;
     description: string;
-    isDone: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-};
+
+    constructor(id: string, title: string, description: string) {
+        super(id);
+        this.title = title;
+        this.description = description;
+    }
+}
