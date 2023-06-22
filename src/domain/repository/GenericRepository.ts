@@ -11,12 +11,12 @@ export abstract class GenericRepository<T extends Entity> {
         this.dataSource = dataSource;
     }
 
-    async find(item: T): Promise<T[]> {
-        return await this.dataSource.find(item);
-    }
-
     async findOne(id: EntityID): Promise<T> {
         return await this.dataSource.findOne(id);
+    }
+
+    async findAll(): Promise<T[]> {
+        return await this.dataSource.findAll();
     }
 
     async create(item: T): Promise<boolean> {

@@ -2,9 +2,9 @@ import { Entity, EntityID } from "~/domain/entities/Entity";
 
 export interface DataSource<T extends Entity> {
 
-    find(item: T): Promise<T[]>;
-
     findOne(id: EntityID): Promise<T>;
+
+    findAll(): Promise<T[]>;
 
     create(item: T): Promise<boolean>;
 
