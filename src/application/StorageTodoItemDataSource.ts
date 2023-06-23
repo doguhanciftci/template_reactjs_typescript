@@ -1,14 +1,14 @@
 import { DataSource } from "~/domain/datasource";
 import { TodoItem } from "~/domain/entities";
 
-export class LocalStorageTodoItemDataSource implements DataSource<TodoItem> {
+export class StorageTodoItemDataSource implements DataSource<TodoItem> {
 
     //#region Private Properties
     private itemsKey: string;
     //#endregion
 
     //#region Constructor
-    constructor(itemsKey: string) {
+    constructor(itemsKey: string = "todo-items") {
         this.itemsKey = itemsKey;
     }
     //#endregion

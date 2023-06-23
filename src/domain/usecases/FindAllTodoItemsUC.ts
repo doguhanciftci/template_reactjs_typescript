@@ -2,7 +2,7 @@ import { TodoItem } from '../entities/TodoItem';
 import { GenericRepository } from '../repository/GenericRepository';
 import { UseCase } from './UseCase';
 
-export class GetAllTodoItemsUC implements UseCase<void, TodoItem[]> {
+export class FindAllTodoItemsUC implements UseCase<void, TodoItem[]> {
 
     private repository: GenericRepository<TodoItem>;
 
