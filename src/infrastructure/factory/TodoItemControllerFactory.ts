@@ -1,9 +1,8 @@
-import { MemoryTodoItemDataSource } from "~/application/MemoryTodoItemDataSource";
-import { StorageTodoItemDataSource } from "~/application/StorageTodoItemDataSource";
 import { TodoItemController } from "~/application/TodoItemController";
-import { TodoItemRepository } from "~/application/TodoItemRepository";
-import { DataSource } from "~/domain/datasource";
 import { TodoItem } from "~/domain/entities";
+import { DataSource } from "~/domain/repository";
+import { MemoryTodoItemDataSource, StorageTodoItemDataSource } from "~/infrastructure/repository";
+import { TodoItemRepository } from "~/infrastructure/repository/TodoItemRepository";
 import { BaseFactory } from "./BaseFactory";
 
 export enum TodoItemDataSourceType {

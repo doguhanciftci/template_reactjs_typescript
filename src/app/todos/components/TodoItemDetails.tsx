@@ -1,4 +1,3 @@
-import React from 'react';
 import { TodoItem } from '~/domain/entities';
 
 export function TodoItemDetails({ todoItem }: { todoItem: TodoItem }) {

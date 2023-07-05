@@ -1,5 +1,5 @@
-import { DataSource } from "~/domain/datasource";
 import { Entity, EntityID } from "~/domain/entities/Entity";
+import { DataSource } from "./DataSource";
 
 export abstract class GenericRepository<T extends Entity> {
 

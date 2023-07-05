@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { TodoItem } from "~/domain/entities";
-import { TodoItemControllerFactory, TodoItemDataSourceType } from "~/infrastructure/TodoItemControllerFactory";
+import { TodoItemControllerFactory, TodoItemDataSourceType } from "~/infrastructure/factory/TodoItemControllerFactory";
 import { CreateTodoItemForm } from "./components/CreateTodoItemForm";
 import { TodoItemDetails } from "./components/TodoItemDetails";
 

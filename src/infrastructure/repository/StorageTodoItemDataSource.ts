@@ -1,5 +1,5 @@
-import { DataSource } from "~/domain/datasource";
 import { TodoItem } from "~/domain/entities";
+import { DataSource } from "~/domain/repository";
 
 export class StorageTodoItemDataSource implements DataSource<TodoItem> {
 

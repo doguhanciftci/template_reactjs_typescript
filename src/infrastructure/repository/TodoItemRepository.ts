@@ -1,6 +1,5 @@
 import { TodoItem } from "~/domain/entities";
-import { GenericRepository } from "~/domain/repository";
-import { DataSource } from "~/domain/datasource";
+import { DataSource, GenericRepository } from "~/domain/repository";
 
 export class TodoItemRepository extends GenericRepository<TodoItem> {
 
