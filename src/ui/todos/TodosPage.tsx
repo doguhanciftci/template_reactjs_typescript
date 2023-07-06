@@ -1,10 +1,15 @@
+import { Container, Typography } from '@mui/material';
 import { useCallback, useEffect, useState } from "react";
-import { TodoItemController, TodoItemControllerEvents } from '~/application/TodoItemController';
+import { TodoItemControllerEvents } from '~/application/TodoItemController';
 import { TodoItem } from "~/domain/entities";
+import { useTodoItemController } from "~/ui/context";
 import { CreateTodoItemForm } from "./CreateTodoItemForm";
 import { TodoItemDetails } from "./TodoItemDetails";
 
-export function TodosPage({ todoItemController }: { todoItemController: TodoItemController }) {
+export function TodosPage() {
+
+    const { todoItemController } = useTodoItemController();
+    console.log(todoItemController)
 
     const [todoItems, setTodoItems] = useState<TodoItem[]>([]);
 
@@ -14,7 +19,7 @@ export function TodosPage({ todoItemController }: { todoItemController: TodoItem
             .then((todoItems) => {
                 setTodoItems(todoItems);
             });
-    }, [todoItemController]);
+    }, [todoItemController, setTodoItems]);
 
     useEffect(() => {
         fetchTodoItems();
@@ -31,9 +36,16 @@ export function TodosPage({ todoItemController }: { todoItemController: TodoItem
     }, [todoItemController, fetchTodoItems]);
 
     return (
-        <div>
-            <h1>Todos</h1>
-            <h2>TodoItems</h2>
+        <Container sx={{ mb: 10 }}>
+            <Typography variant="h1" component="div" gutterBottom>
+                Todos
+            </Typography>
+            <hr />
+            <CreateTodoItemForm />
+            <hr />
+            <Typography variant="h2" component="div" gutterBottom>
+                TodoItems
+            </Typography>
             <hr />
             <ul>
                 {
@@ -45,8 +57,7 @@ export function TodosPage({ todoItemController }: { todoItemController: TodoItem
                 }
             </ul>
 
-            <hr />
-            <CreateTodoItemForm todoItemController={todoItemController} />
-        </div>
+
+        </Container>
     )
 }
