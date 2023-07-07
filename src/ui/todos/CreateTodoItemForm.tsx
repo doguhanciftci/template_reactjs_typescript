@@ -13,6 +13,7 @@ export function CreateTodoItemForm() {
 
     const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        event.stopPropagation();
         const todoItem = new TodoItem(id, title, description);
         todoItemController.create(todoItem)
             .then((success) => {

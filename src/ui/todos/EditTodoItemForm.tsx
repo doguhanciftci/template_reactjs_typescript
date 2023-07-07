@@ -12,6 +12,7 @@ export function EditTodoItemForm({ open, handleClose, todoItem }: { open: boolea
 
     const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        event.stopPropagation();
         todoItem.title = title;
         todoItem.description = description;
         todoItemController.update(todoItem)
