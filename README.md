@@ -12,14 +12,23 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install Dependencies
 
-```bash
+```
+npm i
+```
+
+### 2. Start Server
+
+Run the development server:
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+
+or Serve as a static website:
+```
+npm run build
+npm run serve
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
