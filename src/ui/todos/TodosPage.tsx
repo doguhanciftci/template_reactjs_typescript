@@ -4,7 +4,7 @@ import { TodoItemControllerEvents } from '~/application/TodoItemController';
 import { TodoItem } from "~/domain/entities";
 import { useTodoItemController } from "~/ui/context";
 import { CreateTodoItemForm } from "./CreateTodoItemForm";
-import { TodoItemDetails } from "./TodoItemDetails";
+import { TodoItemList } from "./TodoItemList";
 
 export function TodosPage() {
 
@@ -42,21 +42,7 @@ export function TodosPage() {
             <hr />
             <CreateTodoItemForm />
             <hr />
-            <Typography variant="h2" component="div" gutterBottom>
-                TodoItems
-            </Typography>
-            <hr />
-            <ul>
-                {
-                    todoItems.map((todoItem) =>
-                        <li key={todoItem.id}>
-                            <TodoItemDetails todoItem={todoItem} />
-                        </li>
-                    )
-                }
-            </ul>
-
-
+            <TodoItemList todoItems={todoItems} />
         </Container>
     )
 }
