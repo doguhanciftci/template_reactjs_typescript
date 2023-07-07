@@ -9,7 +9,6 @@ import { TodoItemDetails } from "./TodoItemDetails";
 export function TodosPage() {
 
     const { todoItemController } = useTodoItemController();
-    console.log(todoItemController)
 
     const [todoItems, setTodoItems] = useState<TodoItem[]>([]);
 
