@@ -1,23 +1,20 @@
 import { Container, Typography } from '@mui/material';
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from 'react';
 import { TodoItemControllerEvents } from '~/application/TodoItemController';
-import { TodoItem } from "~/domain/entities";
-import { useTodoItemController } from "~/ui/context";
-import { CreateTodoItemForm } from "./CreateTodoItemForm";
-import { TodoItemList } from "./TodoItemList";
+import { TodoItem } from '~/domain/entities';
+import { useTodoItemController } from '~/ui/context';
+import { CreateTodoItemForm } from './CreateTodoItemForm';
+import { TodoItemList } from './TodoItemList';
 
 export function TodosPage() {
-
     const { todoItemController } = useTodoItemController();
 
     const [todoItems, setTodoItems] = useState<TodoItem[]>([]);
 
     const fetchTodoItems = useCallback(() => {
-        todoItemController
-            .findAll()
-            .then((todoItems) => {
-                setTodoItems(todoItems);
-            });
+        todoItemController.findAll().then((todoItems) => {
+            setTodoItems(todoItems);
+        });
     }, [todoItemController, setTodoItems]);
 
     useEffect(() => {
@@ -31,12 +28,16 @@ export function TodosPage() {
             todoItemController.eventEmitter.off(TodoItemControllerEvents.CREATED, fetchTodoItems);
             todoItemController.eventEmitter.off(TodoItemControllerEvents.DELETED, fetchTodoItems);
             todoItemController.eventEmitter.off(TodoItemControllerEvents.UPDATED, fetchTodoItems);
-        }
+        };
     }, [todoItemController, fetchTodoItems]);
 
     return (
         <Container sx={{ mb: 10 }}>
-            <Typography variant="h1" component="div" gutterBottom>
+            <Typography
+                variant="h1"
+                component="div"
+                gutterBottom
+            >
                 Todos
             </Typography>
             <hr />
@@ -44,5 +45,5 @@ export function TodosPage() {
             <hr />
             <TodoItemList todoItems={todoItems} />
         </Container>
-    )
+    );
 }

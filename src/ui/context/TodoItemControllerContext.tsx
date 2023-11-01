@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { TodoItemController } from '~/application/TodoItemController';
-import { TodoItemControllerFactory, TodoItemDataSourceType } from "~/infrastructure/factory/TodoItemControllerFactory";
+import { TodoItemControllerFactory, TodoItemDataSourceType } from '~/infrastructure/factory/TodoItemControllerFactory';
 
 export interface TodoItemControllerContextInterface {
     todoItemController: TodoItemController;
@@ -12,15 +12,11 @@ const todoItemControllerFactory = new TodoItemControllerFactory();
 const todoItemController = todoItemControllerFactory.create(TodoItemDataSourceType.LocalStorage);
 
 export const TodoItemControllerProvider = ({ children }: { children: any }) => {
-
     const value = {
-        todoItemController
-    }
+        todoItemController,
+    };
 
-    return (
-        <TodoItemControllerContext.Provider value={value}>{children}</TodoItemControllerContext.Provider>
-    );
-
-}
+    return <TodoItemControllerContext.Provider value={value}>{children}</TodoItemControllerContext.Provider>;
+};
 
 export const useTodoItemController = () => useContext(TodoItemControllerContext);

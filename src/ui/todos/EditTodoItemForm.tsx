@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { TodoItem } from '~/domain/entities';
 import { useTodoItemController } from '~/ui/context';
 
-export function EditTodoItemForm({ open, handleClose, todoItem }: { open: boolean, handleClose: () => void, todoItem: TodoItem }) {
-
+export function EditTodoItemForm({ open, handleClose, todoItem }: { open: boolean; handleClose: () => void; todoItem: TodoItem }) {
     const [title, setTitle] = useState<string>(todoItem.title);
     const [description, setDescription] = useState<string>(todoItem.description);
 
@@ -15,25 +14,45 @@ export function EditTodoItemForm({ open, handleClose, todoItem }: { open: boolea
         event.stopPropagation();
         todoItem.title = title;
         todoItem.description = description;
-        todoItemController.update(todoItem)
-            .then((success) => {
-                success && handleClose();
-            });
+        todoItemController.update(todoItem).then((success) => {
+            success && handleClose();
+        });
         handleClose();
-    }
+    };
 
     return (
         <Dialog open={open}>
             <DialogTitle>Edit To-Do Item</DialogTitle>
             <DialogContent>
                 <form onSubmit={handleOnSubmit}>
-                    <Stack sx={{ paddingBottom: 2 }} spacing={2} alignItems='center'>
-                        <TextField name="title" label="Title" variant="outlined" value={title} onChange={(event) => setTitle(event.target.value)} />
-                        <TextField name="description" label="Description" variant="outlined" value={description} onChange={(event) => setDescription(event.target.value)} />
-                        <Button type="submit" variant='contained'>Update</Button>
+                    <Stack
+                        sx={{ paddingBottom: 2 }}
+                        spacing={2}
+                        alignItems="center"
+                    >
+                        <TextField
+                            name="title"
+                            label="Title"
+                            variant="outlined"
+                            value={title}
+                            onChange={(event) => setTitle(event.target.value)}
+                        />
+                        <TextField
+                            name="description"
+                            label="Description"
+                            variant="outlined"
+                            value={description}
+                            onChange={(event) => setDescription(event.target.value)}
+                        />
+                        <Button
+                            type="submit"
+                            variant="contained"
+                        >
+                            Update
+                        </Button>
                     </Stack>
                 </form>
             </DialogContent>
         </Dialog>
-    )
+    );
 }
