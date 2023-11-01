@@ -1,3 +1,3 @@
 export abstract class BaseFactory<T> {
-    abstract create(args: any): T;
+    abstract create(args: unknown): T;
 }
