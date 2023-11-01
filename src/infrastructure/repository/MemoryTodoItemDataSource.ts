@@ -1,14 +1,12 @@
-import { TodoItem } from "~/domain/entities";
-import { DataSource } from "~/domain/repository";
+import { TodoItem } from '~/domain/entities';
+import { DataSource } from '~/domain/repository';
 
 export class MemoryTodoItemDataSource implements DataSource<TodoItem> {
-
     private items: TodoItem[] = [];
 
     async findOne(id: string): Promise<TodoItem> {
-        const item = this.items.find(item => item.id === id);
-        if (!item)
-            throw new Error(`Item with id ${id} not found`);
+        const item = this.items.find((item) => item.id === id);
+        if (!item) throw new Error(`Item with id ${id} not found`);
         return item;
     }
 
@@ -22,7 +20,7 @@ export class MemoryTodoItemDataSource implements DataSource<TodoItem> {
     }
 
     async update(id: string, item: TodoItem): Promise<boolean> {
-        const index = this.items.findIndex(item => item.id === id);
+        const index = this.items.findIndex((item) => item.id === id);
         if (index < 0) {
             return false;
         }
@@ -31,7 +29,7 @@ export class MemoryTodoItemDataSource implements DataSource<TodoItem> {
     }
 
     async delete(id: string): Promise<boolean> {
-        const index = this.items.findIndex(item => item.id === id);
+        const index = this.items.findIndex((item) => item.id === id);
         if (index < 0) {
             return false;
         }

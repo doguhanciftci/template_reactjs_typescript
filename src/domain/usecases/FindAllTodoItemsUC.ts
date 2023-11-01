@@ -3,7 +3,6 @@ import { GenericRepository } from '../repository/GenericRepository';
 import { UseCase } from './UseCase';
 
 export class FindAllTodoItemsUC implements UseCase<void, TodoItem[]> {
-
     private repository: GenericRepository<TodoItem>;
 
     constructor(repository: GenericRepository<TodoItem>) {
@@ -13,5 +12,4 @@ export class FindAllTodoItemsUC implements UseCase<void, TodoItem[]> {
     async execute(): Promise<TodoItem[]> {
         return await this.repository.findAll();
     }
-
 }

@@ -1,7 +1,7 @@
-import { TodoItem } from "~/domain/entities";
-import { GenericRepository } from "~/domain/repository";
-import { CreateTodoItemUC, DeleteTodoItemUC, FindAllTodoItemsUC, UpdateTodoItemUC } from "~/domain/usecases";
-import { EventEmitter } from "events";
+import { TodoItem } from '~/domain/entities';
+import { GenericRepository } from '~/domain/repository';
+import { CreateTodoItemUC, DeleteTodoItemUC, FindAllTodoItemsUC, UpdateTodoItemUC } from '~/domain/usecases';
+import { EventEmitter } from 'events';
 
 export enum TodoItemControllerEvents {
     CREATED = 'created',
@@ -9,9 +9,7 @@ export enum TodoItemControllerEvents {
     UPDATED = 'updated',
 }
 
-
 export class TodoItemController {
-
     private repository: GenericRepository<TodoItem>;
     eventEmitter: EventEmitter;
 
@@ -51,5 +49,4 @@ export class TodoItemController {
         }
         return result;
     }
-
 }

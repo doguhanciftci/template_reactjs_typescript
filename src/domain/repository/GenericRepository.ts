@@ -1,9 +1,8 @@
-import { Entity, EntityID } from "~/domain/entities/Entity";
-import { DataSource } from "./DataSource";
+import { Entity, EntityID } from '~/domain/entities/Entity';
+import { DataSource } from './DataSource';
 
 export abstract class GenericRepository<T extends Entity> {
-
-    protected name: string = "GenericRepository"
+    protected name: string = 'GenericRepository';
     protected dataSource: DataSource<T>;
 
     constructor(name: string, dataSource: DataSource<T>) {

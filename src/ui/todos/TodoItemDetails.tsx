@@ -6,12 +6,11 @@ import { useTodoItemController } from '~/ui/context';
 import { EditTodoItemForm } from './EditTodoItemForm';
 
 export function TodoItemDetails({ todoItem }: { todoItem: TodoItem }) {
-
     const { todoItemController } = useTodoItemController();
 
     const handleDelete = () => {
         todoItemController.delete(todoItem);
-    }
+    };
 
     const [openEdit, setOpenEdit] = useState<boolean>(false);
 
@@ -32,14 +31,22 @@ export function TodoItemDetails({ todoItem }: { todoItem: TodoItem }) {
                     }
                 />
                 <CardContent>
-                    <Typography variant="body1" component="div" gutterBottom>
+                    <Typography
+                        variant="body1"
+                        component="div"
+                        gutterBottom
+                    >
                         {todoItem.description}
                     </Typography>
                 </CardContent>
             </Card>
-            {
-                openEdit && <EditTodoItemForm open={openEdit} handleClose={() => setOpenEdit(false)} todoItem={todoItem} />
-            }
+            {openEdit && (
+                <EditTodoItemForm
+                    open={openEdit}
+                    handleClose={() => setOpenEdit(false)}
+                    todoItem={todoItem}
+                />
+            )}
         </>
-    )
+    );
 }

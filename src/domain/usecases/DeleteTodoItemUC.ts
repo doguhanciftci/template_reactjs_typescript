@@ -1,9 +1,8 @@
-import { TodoItem } from "../entities/TodoItem";
-import { GenericRepository } from "../repository/GenericRepository";
-import { UseCase } from "./UseCase";
+import { TodoItem } from '../entities/TodoItem';
+import { GenericRepository } from '../repository/GenericRepository';
+import { UseCase } from './UseCase';
 
 export class DeleteTodoItemUC implements UseCase<TodoItem, boolean> {
-
     private repository: GenericRepository<TodoItem>;
 
     constructor(repository: GenericRepository<TodoItem>) {
@@ -13,5 +12,4 @@ export class DeleteTodoItemUC implements UseCase<TodoItem, boolean> {
     async execute(item: TodoItem): Promise<boolean> {
         return await this.repository.delete(item.id);
     }
-
 }

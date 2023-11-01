@@ -1,14 +1,13 @@
-import { TodoItem } from "~/domain/entities";
-import { DataSource } from "~/domain/repository";
+import { TodoItem } from '~/domain/entities';
+import { DataSource } from '~/domain/repository';
 
 export class StorageTodoItemDataSource implements DataSource<TodoItem> {
-
     //#region Private Properties
     private itemsKey: string;
     //#endregion
 
     //#region Constructor
-    constructor(itemsKey: string = "todo-items") {
+    constructor(itemsKey: string = 'todo-items') {
         this.itemsKey = itemsKey;
     }
     //#endregion
@@ -30,9 +29,8 @@ export class StorageTodoItemDataSource implements DataSource<TodoItem> {
     //#region Public Methods
     async findOne(id: string): Promise<TodoItem> {
         const items = this.getItems();
-        const item = items.find(item => item.id === id);
-        if (!item)
-            throw new Error(`Item with id ${id} not found`);
+        const item = items.find((item) => item.id === id);
+        if (!item) throw new Error(`Item with id ${id} not found`);
         return item;
     }
 
@@ -49,7 +47,7 @@ export class StorageTodoItemDataSource implements DataSource<TodoItem> {
 
     async update(id: string, item: TodoItem): Promise<boolean> {
         const items = this.getItems();
-        const index = items.findIndex(item => item.id === id);
+        const index = items.findIndex((item) => item.id === id);
         if (index < 0) {
             return false;
         }
@@ -60,7 +58,7 @@ export class StorageTodoItemDataSource implements DataSource<TodoItem> {
 
     async delete(id: string): Promise<boolean> {
         const items = this.getItems();
-        const index = items.findIndex(item => item.id === id);
+        const index = items.findIndex((item) => item.id === id);
         if (index < 0) {
             return false;
         }
@@ -70,4 +68,3 @@ export class StorageTodoItemDataSource implements DataSource<TodoItem> {
     }
     //#endregion
 }
-
