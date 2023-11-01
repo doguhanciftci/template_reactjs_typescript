@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { PropsWithChildren, createContext, useContext } from 'react';
 import { TodoItemController } from '~/application/TodoItemController';
 import { TodoItemControllerFactory, TodoItemDataSourceType } from '~/infrastructure/factory/TodoItemControllerFactory';
 
@@ -11,7 +11,7 @@ const TodoItemControllerContext = createContext<TodoItemControllerContextInterfa
 const todoItemControllerFactory = new TodoItemControllerFactory();
 const todoItemController = todoItemControllerFactory.create(TodoItemDataSourceType.LocalStorage);
 
-export const TodoItemControllerProvider = ({ children }: { children: any }) => {
+export const TodoItemControllerProvider = ({ children }: PropsWithChildren) => {
     const value = {
         todoItemController,
     };
