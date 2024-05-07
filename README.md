@@ -9,6 +9,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Would you like to customize the default import alias? ... No / Yes
 - What import alias would you like configured? ... ~/*
 
+## [Live Demo](https://doguhanciftci.github.io/template_reactjs_typescript/)
 
 ## Getting Started
 
